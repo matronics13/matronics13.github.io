@@ -5,8 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Matronics</title>
 <style>
-  html, body { margin:0; padding:0; background:#f4f8fc; color:#0b3a6e;
-               font:15px/1.45 "Segoe UI", system-ui, sans-serif; }
+  html, body { margin:0; padding:0; min-height:100%; background:#f4f8fc; color:#0b3a6e;
+               font:15px/1.45 "Segoe UI", system-ui, sans-serif; position:relative; }
+  body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("matronics_bg.png") center 42% / min(70vw, 420px) no-repeat;
+    opacity:0.08;
+    pointer-events:none;
+    z-index:0;
+  }
+  #brand, #wrap, #credit { position:relative; z-index:1; }
   #wrap { padding:16px 18px; }
   #state { font-size:22px; font-weight:700; margin:0 0 6px; color:#0a2f5c; }
   #det { font-size:13px; color:#3d6fa3; margin:0 0 4px; }
@@ -20,6 +30,16 @@
                vertical-align:middle; background:#fff; }
   #brand b { font-size:15px; font-weight:700; letter-spacing:.14em;
              color:#ffffff; vertical-align:middle; }
+  #credit {
+    position:fixed;
+    left:0; right:0; bottom:14px;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:.06em;
+    color:#5a86b5;
+    opacity:0.85;
+    pointer-events:none;
+  }
 </style>
 </head>
 <body>
@@ -29,6 +49,7 @@
   <div id="det"></div>
   <div id="cache"></div>
 </div>
+<div id="credit">Made by experts from Lebanon</div>
 
 <script>
 (function () {

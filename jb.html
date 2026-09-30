@@ -16,6 +16,24 @@
           15px/1.45 "Segoe UI",
           system-ui,
           sans-serif;
+        position: relative;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: url("matronics_bg.png") center 42% / min(70vw, 420px) no-repeat;
+        opacity: 0.08;
+        pointer-events: none;
+        z-index: 0;
+      }
+      #brand,
+      #wrap,
+      #spin,
+      #msg,
+      #credit {
+        position: relative;
+        z-index: 1;
       }
       #brand {
         text-align: center;
@@ -58,6 +76,7 @@
         border-top-color: #0b5cab;
         border-radius: 50%;
         animation: spin 0.9s linear infinite;
+        z-index: 2;
       }
       @keyframes spin {
         to {
@@ -75,6 +94,7 @@
         letter-spacing: 0.5px;
         display: none;
         color: #0b3a6e;
+        z-index: 2;
       }
       #wrap {
         padding: 0;
@@ -147,6 +167,19 @@
       code {
         color: #0b5cab;
       }
+      #credit {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 14px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        color: #5a86b5;
+        opacity: 0.85;
+        pointer-events: none;
+        z-index: 2;
+      }
     </style>
   </head>
   <body>
@@ -164,6 +197,7 @@
       <div id="state"></div>
       <div id="out"></div>
     </div>
+    <div id="credit">Made by experts from Lebanon</div>
     <script type="module">
       import "./jb.js?v=19";
     </script>
